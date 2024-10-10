@@ -1,0 +1,49 @@
+$color-gray: #f7f7f7;
+$color-pink: rgba(255, 192, 203, 0.932);
+h1 {
+    background-color: $color-gray;
+}
+@mixin change-style($passed-color) {
+    color: $passed-color;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",  sans-serif;
+}
+// this is a comment
+.mydiv {
+    p {
+        // your styling for p tag goes here
+        background-color: transparent;
+        // include mixin
+        @include change-style($color-pink);
+        &:hover {
+            font-style: italic;
+        }
+    }
+}
+
+%layouts {
+padding: 55px;
+display: inline-block;
+height: 50px;
+}
+// this is a comment
+.mydiv {
+   p {
+      // your styling for p tag goes here
+      background-color: transparent;
+      // extending
+      @extend %layouts;
+    
+       &:hover {
+         font-style: italic; 
+       }
+    }
+}
+body .content {
+    p{
+    color: red;
+    font-size:15px;
+    }
+}
